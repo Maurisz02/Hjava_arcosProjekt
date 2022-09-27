@@ -86,6 +86,32 @@ public class Harcos {
     }
 
     public void megkuzd(Harcos h){
+        if(h.nev == this.nev && h.szint == this.szint){
+            System.out.println("Saját magaddal nem tudsz harcolni!");
+        }else if(h.eletero==0 || this.eletero==0){
+            System.out.println("Nem tudsz harcolni, ha valamelyikőtök életereje 0");
+        }else{
+            int tamadoS = this.getSebzes();
+            int tamadoE = this.getEletero();
+            int vedoS = h.getSebzes();
+            int vedoE = h.getEletero();
+            vedoE = vedoE-tamadoS;
+            h.setEletero(vedoE);
+            //vagy getEletero t vizsgálunk
+            if (vedoE > 0){
+                tamadoE = tamadoE-vedoS;
+                this.setEletero(tamadoE);
+                h.setTapasztalat(5);
+                if (tamadoE > 0){
+                    this.setTapasztalat(5);
+                }else{
+                    h.setTapasztalat(10);
+                }
+            }else{
+                this.setTapasztalat(10);
+            }
+
+        }
 
     }
 
