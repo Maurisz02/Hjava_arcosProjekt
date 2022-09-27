@@ -36,6 +36,18 @@ public class Harcos {
 
     public void setNev(String nev){
         this.nev = nev;
+
+        if (this.getEletero()==0 || this.getEletero()<0){
+            this.setTapasztalat(0);
+        }
+        if (this.getEletero()>this.getMaxEletero()){
+            this.setEletero(this.getMaxEletero());
+        }
+        if (this.getTapasztalat() >= this.getSzintLepeshez()){
+            this.setTapasztalat(this.getTapasztalat()-this.getSzintLepeshez());
+            this.setSzint(this.getSzint()+1);
+            this.setEletero(this.getMaxEletero());
+        }
     }
 
     public int getSzint(){
@@ -44,6 +56,18 @@ public class Harcos {
 
     public void setSzint(int szint){
         this.szint=szint;
+
+        if (this.getEletero()==0 || this.getEletero()<0){
+            this.setTapasztalat(0);
+        }
+        if (this.getEletero()>this.getMaxEletero()){
+            this.setEletero(this.getMaxEletero());
+        }
+        if (this.getTapasztalat() >= this.getSzintLepeshez()){
+            this.setTapasztalat(this.getTapasztalat()-this.getSzintLepeshez());
+            this.setSzint(this.getSzint()+1);
+            this.setEletero(this.getMaxEletero());
+        }
     }
 
     public int getTapasztalat(){
@@ -52,6 +76,18 @@ public class Harcos {
 
     public void setTapasztalat(int tapasztalat){
         this.tapasztalat = tapasztalat;
+
+        if (this.getEletero()==0 || this.getEletero()<0){
+            this.setTapasztalat(0);
+        }
+        if (this.getEletero()>this.getMaxEletero()){
+            this.setEletero(this.getMaxEletero());
+        }
+        if (this.getTapasztalat() >= this.getSzintLepeshez()){
+            this.setTapasztalat(this.getTapasztalat()-this.getSzintLepeshez());
+            this.setSzint(this.getSzint()+1);
+            this.setEletero(this.getMaxEletero());
+        }
     }
 
     public int getAlapEletero(){
@@ -68,6 +104,17 @@ public class Harcos {
 
     public void setEletero(int eletero){
         this.eletero = eletero;
+        if (this.getEletero()==0 || this.getEletero()<0){
+            this.setTapasztalat(0);
+        }
+        if (this.getEletero()>this.getMaxEletero()){
+            this.setEletero(this.getMaxEletero());
+        }
+        if (this.getTapasztalat() >= this.getSzintLepeshez()){
+            this.setTapasztalat(this.getTapasztalat()-this.getSzintLepeshez());
+            this.setSzint(this.getSzint()+1);
+            this.setEletero(this.getMaxEletero());
+        }
     }
 
     public int getSebzes(){
@@ -101,14 +148,14 @@ public class Harcos {
             if (vedoE > 0){
                 tamadoE = tamadoE-vedoS;
                 this.setEletero(tamadoE);
-                h.setTapasztalat(5);
+                h.setTapasztalat(h.getTapasztalat()+5);
                 if (tamadoE > 0){
-                    this.setTapasztalat(5);
+                    this.setTapasztalat(this.getTapasztalat()+5);
                 }else{
-                    h.setTapasztalat(10);
+                    h.setTapasztalat(h.getTapasztalat()+10);
                 }
             }else{
-                this.setTapasztalat(10);
+                this.setTapasztalat(this.getTapasztalat()+10);
             }
 
         }
@@ -116,7 +163,7 @@ public class Harcos {
     }
 
     public void gyogyul(){
-        if(this.getEletero()==0 || this.getEletero() < 0){
+        if(this.getEletero() <= 0){
             int maxHp = this.getMaxEletero();
             this.setEletero(maxHp);
         }else{
