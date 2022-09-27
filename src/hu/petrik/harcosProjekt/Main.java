@@ -35,9 +35,15 @@ public class Main {
         //System.out.println(titanLista);
 
         System.out.println("A karaktered: "+ h4);
-
+        char valasz = 'w';
+        while(valasz != 'c')
         for(int i = 0; i < titanLista.getHarcosok().size();i++){
             System.out.println(i+1+". "+titanLista.getHarcosok().get(i));
+        }
+        System.out.println("Mit Szeretnél csinálni?\n a, Megküzdeni egy harcossal\n b, Gyógyulni\n c, Kilépni");
+        valasz = sc.nextLine().charAt(0);
+        if (valasz == 'a'){
+            
         }
 
 
