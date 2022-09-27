@@ -1,6 +1,7 @@
 package hu.petrik.harcosProjekt;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
@@ -21,6 +22,23 @@ public class Main {
         }
 
         System.out.println(titanLista);
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Add meg a harcosod nevét: ");
+        String nev = sc.nextLine();
+        System.out.println("Add meg a harcosod státusz sablonát(1-3):");
+        int statusz = sc.nextInt();
+
+        Harcos h4 = new Harcos(nev,statusz);
+        titanLista.getHarcosok().add(h4);
+
+        //System.out.println(titanLista);
+
+        System.out.println("A karaktered: "+ h4);
+
+        for(int i = 0; i < titanLista.getHarcosok().size();i++){
+            System.out.println(i+1+". "+titanLista.getHarcosok().get(i));
+        }
 
 
     }
